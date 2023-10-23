@@ -1,6 +1,10 @@
 class Musiker {
-  constructor() {
-
+  constructor(name, birth) {
+    this.name = name;
+    this.birth = birth;
+    this.bands = [];
+    this.prevBands = [];
+    this.instruments = []
   }
 }
 
