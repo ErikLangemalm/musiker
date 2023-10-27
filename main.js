@@ -202,6 +202,7 @@ class Manager {
     }
 
     assignBand(musician, band){
+        
         bandCheck = false;
         musikerCheck = false;
         for(let i = 0; i < this.bands.length; i++){
@@ -214,6 +215,11 @@ class Manager {
             if(this.musiker[i].name == musician){
                 musikerCheck = true
             }
+        }
+
+        if(musikerCheck === true || bandCheck === true){
+            this.musiker.members = band
+            this.bands.members = musician
         }
         
     }
@@ -287,10 +293,12 @@ function main() {
             while(choice != "till" || choice != "bort"){
                 choice = prompt().toLowerCase().trim()
                 if (choice == "till"){
-                    manager.assignBand()
+                    mNamn = prompt("Vilken musiker vill du lägga till?\t").trim()
+                    bNamn = prompt("Vilket band vill du lägga till musikern till?").trim()
+                    manager.assignBand(mNamn, bNamn);
                 }
                 else if(choice == "bort"){
-
+                    //work in progress
                 }
                 else{
                     void (0)
@@ -298,7 +306,7 @@ function main() {
             }
         }
         else if(answer == "6"){
-
+            //work in progress
         }
         else if(answer == "7"){
             let namn = prompt("Vad heter musikern du vill ha information om?\t").trim();
